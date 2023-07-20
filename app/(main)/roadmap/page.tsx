@@ -1,13 +1,8 @@
 "use client"
 import Accordion from '@/components/roadmap/Accordion';
 import Milestone from '@/components/roadmap/Milestone';
-import { MotionValue, useScroll, useTransform } from 'framer-motion';
-import React, { useRef } from 'react';
-import { useScrollSnap } from './useScrollSnap';
+import React from 'react';
 
-function useParallax(value: MotionValue<number>, distance: number) {
-  return useTransform(value, [0, 1], [-distance, distance]);
-}
 
 const milestones = [
   { 
@@ -113,25 +108,22 @@ const accordions = [
 
 
 const Roadmap: React.FC = () => {
-  const refs = accordions.reduce((acc, value) => {
-    acc[value.id] = {
-      milestone: useRef<HTMLDivElement | null>(null),
-      accordion: useRef<HTMLDivElement | null>(null),
-    };
-    return acc;
-  }, {} as Record<number, { milestone: React.RefObject<HTMLDivElement>; accordion: React.RefObject<HTMLDivElement> }>);
-
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref });
-  const y = useParallax(scrollYProgress, 300);
+  const refs = React.useMemo(
+    () =>
+      accordions.reduce((acc, value) => {
+        acc[value.id] = {
+          milestone: React.createRef<HTMLDivElement>(),
+          accordion: React.createRef<HTMLDivElement>(),
+        };
+        return acc;
+      }, {} as Record<number, { milestone: React.RefObject<HTMLDivElement>; accordion: React.RefObject<HTMLDivElement> }>),
+    []
+  );
   
   const scrollToMilestone = (id: number) => {
     document.getElementById(`milestone-${id}`)?.scrollIntoView({ behavior: 'auto' });
   };
 
-  milestones.forEach(milestone => {
-    useScrollSnap(refs[milestone.id].milestone, milestone.id);
-  });
   
   const handleScrollLeft = (e: React.UIEvent<HTMLDivElement>) => {
     const rightDiv = document.querySelector('.right');
