@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import './globals.css'
-
+import Link from 'next/link'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -15,10 +14,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} bg-gray-900 text-white	`}>
-        {children}
-      </body>
-    </html>
+<div>
+  <Link href="/" className='fixed z-10 top-10 left-10 text-gray-300 hover:text-white'>
+      Home
+  </Link>
+  {children}
+  
+  <Link href="/roadmap" className="fixed z-10 top-10 right-10 text-gray-300 hover:text-white">
+      Roadmap
+  </Link>
+</div>
   )
 }

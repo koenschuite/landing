@@ -141,7 +141,7 @@ export function Header() {
             </Link>
             <div className="hidden md:flex md:gap-x-12">
               <FlyOut name="Solutions" items={solutions} actions={solutionsAction} />
-              <FlyOut name="Values"  items={values} actions={valuesAction} />
+              <FlyOut name="Details"  items={values} actions={valuesAction} />
             </div>
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
