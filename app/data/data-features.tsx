@@ -36,7 +36,7 @@ const items = [
 
 export default function DataFeatures() {
   return (
-    <main className="grid grid-cols-3">
+    <main className="grid md:grid-cols-3">
         {items.map((item:any, key:number) => (
             <DataFeature key={key} item={item} />
         ))}
@@ -56,7 +56,7 @@ export function DataFeature({item}: {item: any}) {
     }
     return (
         <main className={`px-24 py-8 border ${bg} hover:bg-opacity-20 border-0.5 border-l-0 border-gray-400`}>
-            <h1 className="tracking-wider text-2xl font-light text-center">{item.title}</h1>
+            <h3 className="tracking-wider text-2xl font-light text-center">{item.title}</h3>
             <div className="tracking-widest font-light text-sm text-gray-300 intent-2 my-8">
                 {item.description}
             </div>
