@@ -1,23 +1,22 @@
-import { Logo } from "./logo"
+import TitleEffect from "../text/TitleEffect"
 
 const navigation = {
   solutions: [
-    { name: 'Marketing', href: '#' },
-    { name: 'Analytics', href: '#' },
-    { name: 'Outdoors', href: 'https://billboards.connect-fast.com' },
+    { name: 'Data Management', href: '#' },
+    { name: 'Data Insight', href: '#' },
+    { name: 'Computations', href: '#' },
     { name: 'Insights', href: '#' },
   ],
-  support: [
-    { name: 'SenseMaking', href: '#' },
-    { name: 'Engagement', href: '#' },
-    { name: 'Networking', href: '#' },
+  usecases: [
+    { name: 'Billboards', href: '#' },
     { name: 'Campaign', href: '#' },
+    { name: 'User Feedback ', href: '#' },
+    { name: 'Advertisments', href: '#' },
   ],
   company: [
-    { name: 'Documentation', href: 'https://docs.connect-fast.com' },
-    { name: 'News', href: '#' },
+    { name: 'Roadmap', href: '/roadmap' },
     { name: 'Career', href: '#' },
-    { name: 'Press', href: '#' },
+    { name: 'Blog', href: '#' },
     { name: 'Partners', href: '#' },
   ],
   legal: [
@@ -92,20 +91,20 @@ const navigation = {
 
 export default function Footer() {
   return (
-    <footer className="bg-white dark:bg-black" aria-labelledby="footer-heading">
+    <footer className="bg-[#2d2c2f] dark:bg-black" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
       <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
-           <Logo height={64} />
-            <p className="text-sm leading-6 text-gray-600">
-              Making the world a better place through constructing elegant hierarchies.
+            <TitleEffect />
+            <p className="text-sm leading-6 text-gray-300">
+              Lets make the world a better place together, by making data open, understandable and accessible to everyone.
             </p>
             <div className="flex space-x-6">
               {navigation.social.map((item) => (
-                <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-500">
+                <a key={item.name} href={item.href} className="text-gray-200 hover:text-gray-300">
                   <span className="sr-only">{item.name}</span>
                   <item.icon className="h-6 w-6" aria-hidden="true" />
                 </a>
@@ -115,11 +114,11 @@ export default function Footer() {
           <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold leading-6 text-gray-900">Solutions</h3>
+                <h3 className="text-sm font-semibold leading-6 text-blue-200">Solutions</h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.solutions.map((item) => (
                     <li key={item.name}>
-                      <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
+                      <a href={item.href} className="text-sm leading-6 text-gray-300 hover:text-blue-200">
                         {item.name}
                       </a>
                     </li>
@@ -127,11 +126,11 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-gray-900">Solutions</h3>
+                <h3 className="text-sm font-semibold leading-6 text-blue-200">Use cases</h3>
                 <ul role="list" className="mt-6 space-y-4">
-                  {navigation.support.map((item) => (
+                  {navigation.usecases.map((item) => (
                     <li key={item.name}>
-                      <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
+                      <a href={item.href} className="text-sm leading-6 text-gray-300 hover:text-blue-200">
                         {item.name}
                       </a>
                     </li>
@@ -141,11 +140,11 @@ export default function Footer() {
             </div>
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold leading-6 text-gray-900">Company</h3>
+                <h3 className="text-sm font-semibold leading-6 text-blue-200">Company</h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.company.map((item) => (
                     <li key={item.name}>
-                      <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
+                      <a href={item.href} className="text-sm leading-6 text-gray-300 hover:text-blue-200">
                         {item.name}
                       </a>
                     </li>
@@ -153,11 +152,11 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-gray-900">Legal</h3>
+                <h3 className="text-sm font-medium leading-6 text-blue-200">Legal</h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.legal.map((item) => (
                     <li key={item.name}>
-                      <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
+                      <a href={item.href} className="text-sm leading-6 text-gray-300 hover:text-blue-200">
                         {item.name}
                       </a>
                     </li>
@@ -168,7 +167,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24">
-          <p className="text-xs leading-5 text-gray-500">&copy; 2023 DataPonte All rights reserved.</p>
+          <p className="text-xs leading-5 text-gray-400">&copy; 2023 DataPonte All rights reserved.</p>
         </div>
       </div>
     </footer>
