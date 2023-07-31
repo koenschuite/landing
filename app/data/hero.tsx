@@ -10,7 +10,7 @@ const style = {
   
 export default function Heros() {
   return (
-    <main className="m-12 lg:m-48 sm:m-12 grid md:grid-cols-2">
+    <main className="m-12 lg:m-24 sm:m-12 grid md:grid-cols-2 items-center">
         <div className="col-span-1">
             <h5 className="uppercase tracking-wider font-light font-md text-gray-100">What is data control?</h5>
             <h2 className="font-medium text-white text-xl md:text-2xl lg:text-4xl tracking-widest leading-relaxed mt-2">
